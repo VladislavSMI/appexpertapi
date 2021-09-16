@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/ebe1bdd444.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Kaver's Apps</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar bg-primary-darker">
+      <a href="./index.html">
+        <h1><i class="fas fa-hand-spock"></i> Kaver's Apps</h1>
+      </a>
+      <ul>
+        <a href="./index.html" class="current">Home</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./cards.html">Cards</a>
+        <a href="./water.html">Water</a>
+        <a href="./games.html">Games</a>
+      </ul>
+    </nav>
+    <!-- End of Navbar -->
+    <div class="container">
+      <div class="grid-2">
+        <!-- Weather app -->
+        <div class="card bg-primary text-center">
+          <div class="border p-1">
+            <h1 id="w-location"></h1>
+            <h3 id="w-desc"></h3>
+            <h3 id="w-string"></h3>
+            <img id="w-icon" class="icon" />
+            <ul id="w-details">
+              <li id="w-descLong"></li>
+              <li id="w-humidity"></li>
+              <li id="w-pressure"></li>
+              <li id="w-wind"></li>
+            </ul>
+          </div>
+          <form class="form">
+            <div class="grid-2 m-1">
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Enter City"
+              />
+              <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="Enter State"
+              />
+            </div>
+            <input
+              id="w-change-btn"
+              type="submit"
+              value="Search"
+              class="btn btn-primary-darker btn-block"
+            />
+          </form>
+        </div>
+        <!-- End of Weather app -->
+        <!-- Clock -->
+        <div class="card bg-primary">
+          <div class="clock-container border p-1">
+            <div class="clock">
+              <div class="needle hour"></div>
+              <div class="needle minute"></div>
+              <div class="needle second"></div>
+              <div class="center-point"></div>
+            </div>
+            <div class="time"></div>
+            <div class="date"></div>
+          </div>
+        </div>
+        <!-- End of Clock -->
+        <!-- ToDo app -->
+        <div class="card bg-primary text-center">
+          <div class="border p-1">
+            <h3 class="large">Todo List</h3>
+            <p class="m-1">
+              Left click to mark completed. <br />
+              Righ click / double click to delete.
+            </p>
+            <form id="form">
+              <input
+                type="text"
+                class="input"
+                id="input"
+                placeholder="Enter your todo"
+                autocomplete="off"
+              />
+              <ol class="todos list p-1" id="todos"></ol>
+            </form>
+          </div>
+        </div>
+        <!-- End of ToDo app -->
+
+        <!-- Daily Priorities app -->
+        <div class="card bg-primary text-center">
+          <div class="border p-1">
+            <h3 class="large">
+              Checklist Of Daily Priorities: <span id="dailyFive"></span>
+            </h3>
+            <div class="all-center border my-1">
+              <div class="toggle-container">
+                <input type="checkbox" id="daily1" class="checkBox" />
+                <label for="daily1" class="label">
+                  <div class="ball"></div>
+                </label>
+                <span>Morning Routine</span>
+              </div>
+
+              <div class="toggle-container">
+                <input type="checkbox" id="daily2" class="checkBox" />
+                <label for="daily2" class="label">
+                  <div class="ball"></div>
+                </label>
+                <span>JavaScript Book</span>
+              </div>
+
+              <div class="toggle-container">
+                <input type="checkbox" id="daily3" class="checkBox" />
+                <label for="daily3" class="label">
+                  <div class="ball"></div>
+                </label>
+                <span>Coding Project</span>
+              </div>
+              <div class="toggle-container">
+                <input type="checkbox" id="daily4" class="checkBox" />
+                <label for="daily4" class="label">
+                  <div class="ball"></div>
+                </label>
+                <span>Family Time</span>
+              </div>
+
+              <div class="toggle-container">
+                <input type="checkbox" id="daily5" class="checkBox" />
+                <label for="daily5" class="label">
+                  <div class="ball"></div>
+                </label>
+                <span>German & Tagalog</span>
+              </div>
+            </div>
+            <button class="btn btn-primary-darker btn-block" id="clearBTN">
+              Clear All
+            </button>
+          </div>
+        </div>
+        <!-- End of Daily Priorities app -->
+
+        <!-- Random Choice Picker -->
+        <div class="card bg-primary text-center">
+          <div class="border p-1">
+            <h3 class="large">Random Choice Picker</h3>
+            <p class="m-1">
+              Enter all of the choices divided by a comma (","). <br />
+              Press enter when you're done
+            </p>
+            <textarea
+              id="textarea"
+              placeholder="Enter choices here..."
+              required
+            ></textarea>
+
+            <div id="tags"></div>
+          </div>
+        </div>
+
+        <!-- End of Random Choice Picker -->
+        <!-- Password Generator app -->
+        <div class="card bg-primary text-center">
+          <div class="border p-1">
+            <h2 class="large">Password Generator</h2>
+            <div class="result-container btn-primary-darker">
+              <span id="result"></span>
+              <button class="btn-password-copy" id="clipboard">
+                <i class="far fa-clipboard"></i>
+              </button>
+            </div>
+            <div>
+              <div class="setting">
+                <label>Password Length</label>
+                <input type="number" id="length" min="4" max="20" value="10" />
+              </div>
+              <div class="setting">
+                <label>Include uppercase letters</label>
+                <input type="checkbox" id="uppercase" checked />
+              </div>
+              <div class="setting">
+                <label>Include lowercase letters</label>
+                <input type="checkbox" id="lowercase" checked />
+              </div>
+              <div class="setting">
+                <label>Include numbers</label>
+                <input type="checkbox" id="numbers" checked />
+              </div>
+              <div class="setting">
+                <label>Include symbols</label>
+                <input type="checkbox" id="symbols" />
+              </div>
+            </div>
+
+            <button class="btn btn-primary-darker btn-block" id="generate">
+              Generate Password
+            </button>
+          </div>
+        </div>
+        <!-- End of Password Generator app -->
+        <!-- Chuck Norris Jokes app -->
+        <div class="card bg-primary text-center">
+          <div class="border p-1">
+            <h2 class="large">Chuck Norris Jokes</h2>
+            <div id="joke" class="lead"></div>
+            <button id="jokeBTN" class="btn btn-block btn-primary-darker">
+              Get Another Joke
+            </button>
+          </div>
+        </div>
+        <!-- End of Chuck Norris Jokes app -->
+
+        <!-- Sunds app -->
+        <div class="card bg-primary">
+          <audio id="applause" src="./sounds/applause.mp3"></audio>
+          <audio id="boo" src="./sounds/boo.mp3"></audio>
+          <audio id="gasp" src="./sounds/gasp.mp3"></audio>
+          <audio id="tada" src="./sounds/tada.mp3"></audio>
+          <audio id="victory" src="./sounds/victory.mp3"></audio>
+          <audio id="wrong" src="./sounds/wrong.mp3"></audio>
+
+          <div class="border text-center p-1">
+            <h3 class="large">BS sound radar</h3>
+            <p class="m-1">Click to play sound in case of BS situation</p>
+            <div id="buttons"></div>
+          </div>
+        </div>
+        <!-- End of Sounds app -->
+      </div>
+    </div>
+    <script src="./js/weather.js"></script>
+    <script src="./js/clock.js"></script>
+    <script src="./js/chuck_norris_jokes.js"></script>
+    <script src="./js/password_generator.js"></script>
+    <script src="./js/random_choice_generator.js"></script>
+    <script src="./js/sounds.js"></script>
+    <script src="./js/todo.js"></script>
+    <script src="./js/daily_priorities.js"></script>
+  </body>
+</html>
