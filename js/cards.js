@@ -7,17 +7,40 @@ const hideBtn = document.getElementById("hide");
 const questionEl = document.getElementById("question");
 const answerEl = document.getElementById("answer");
 const addCardBtn = document.getElementById("add-card");
-const clearBtn = document.getElementById("clear");
+const clearAllBtn = document.getElementById("clear-all");
 const addContainer = document.getElementById("add-container");
+
+// Store DOM cards
+let cardsEl = [];
 
 // Keep track of current card
 let currentActiveCard = 0;
 
-// Store DOM cards
-const cardsEl = [];
+// Local Storage
+// Get cards from local storage
+function getCardsData() {
+  const cards = JSON.parse(localStorage.getItem("cards"));
+  return cards === null ? [] : cards;
+}
+
+// Add card to local storage
+function setCardsData(cards) {
+  localStorage.setItem("cards", JSON.stringify(cards));
+  window.location.reload();
+}
+
+// Show number of cards
+function updateCurrentText() {
+  currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
+}
+
+// Generate random ID
+function generateID() {
+  return Math.floor(Math.random() * 100000000);
+}
 
 // Store card data
-const cardsData = getCardsData();
+let cardsData = getCardsData();
 
 // Create all cards
 function createCards() {
@@ -36,7 +59,10 @@ function createCard(data, index) {
 
   card.innerHTML = `
   <div class="inner-card">
-    <div class="inner-card-front">
+  <div class="inner-card-front">
+  <button class="btn btn-small btn-delete" onclick="removeCard(${data.cardId})">
+    <i class="fas fa-times"></i>
+  </button>
        <p>
        ${data.question}
        </p>
@@ -56,29 +82,13 @@ function createCard(data, index) {
 
   cardsContainer.appendChild(card);
 
+  currentActiveCard = cardsEl.length - 1;
+  cardsEl[currentActiveCard].className = "card-memory active";
+
   updateCurrentText();
+
+  // window.location.reload();
 }
-
-// Show number of cards
-function updateCurrentText() {
-  currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
-}
-
-// Get cards from local storage
-function getCardsData() {
-  const cards = JSON.parse(localStorage.getItem("cards"));
-  return cards === null ? [] : cards; // this is super important as we are adding there array into function that is returning array.
-}
-
-// Add card to local storage
-function setCardsData(cards) {
-  localStorage.setItem("cards", JSON.stringify(cards));
-  window.location.reload();
-}
-
-createCards();
-
-// Event listener
 
 // Next button
 nextBtn.addEventListener("click", () => {
@@ -120,9 +130,10 @@ hideBtn.addEventListener("click", () => addContainer.classList.remove("show"));
 addCardBtn.addEventListener("click", () => {
   const question = questionEl.value;
   const answer = answerEl.value;
+  const cardId = generateID();
 
   if (question.trim() && answer.trim()) {
-    const newCard = { question, answer };
+    const newCard = { question, answer, cardId };
 
     createCard(newCard);
 
@@ -131,14 +142,22 @@ addCardBtn.addEventListener("click", () => {
 
     addContainer.classList.remove("show");
 
-    cardsData.push(newCard); // Here we are pushing new card into an arry that is created with the function getCardsData();
-    setCardsData(cardsData); // Here we have to save always the whole complete array together with previously saved arrays from local storage, otherwise we will just save the one last card. Basically it is always updating in a loop. It takes previously saved items and saved them with one more newly added card.
+    cardsData.push(newCard);
+    setCardsData(cardsData);
   }
 });
 
-// Clear cards button
-clearBtn.addEventListener("click", () => {
+// Delete all cards
+clearAllBtn.addEventListener("click", () => {
   localStorage.clear();
   cardsContainer.innerHTML = "";
   window.location.reload();
 });
+
+// Delete card by id
+function removeCard(id) {
+  cardsData = cardsData.filter((cardData) => cardData.cardId !== id);
+  setCardsData(cardsData);
+}
+
+createCards();

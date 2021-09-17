@@ -481,6 +481,7 @@ table th {
 
 .navbar ul {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .navbar a {
@@ -818,7 +819,7 @@ table th {
 
 /* Cards specific styles */
 .cards {
-  perspective: 1000px;
+  perspective: 2000px;
   position: relative;
   height: 300px;
   width: 500px;
@@ -833,8 +834,8 @@ table th {
   left: 0;
   height: 100%;
   width: 100%;
-  transform: translateX(50%) rotateY(-10deg);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  /* transform: translateX(50%) rotateY(-25deg); */
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .card-memory.active {
@@ -845,12 +846,14 @@ table th {
 }
 
 .card-memory.left {
-  transform: translateX(-50%) rotateY(10deg);
+  transform: translateX(-50%) rotateY(25deg);
+}
+
+.card-memory.right {
+  transform: translateX(50%) rotateY(-25deg);
 }
 
 .inner-card {
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
   height: 100%;
   width: 100%;
   position: relative;
@@ -922,10 +925,9 @@ table th {
 }
 
 .add-container {
-  opacity: 1;
-  z-index: 2;
-  background-color: #fff;
-  border-top: 2px solid var(--primary-color);
+  opacity: 0;
+  z-index: -1;
+  background-color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -943,22 +945,44 @@ table th {
   z-index: 2;
 }
 
-.add-container h1 {
-  margin: 10px 0;
+.btn-close-container {
+  position: relative;
+  background-color: var(--primary-color);
+  width: 80%;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
 }
 
 .form-group label {
   display: block;
   margin: 20px 0 10px;
+  color: var(--primary-color);
 }
 
 .form-group textarea {
-  border: 1px solid #aaa;
+  border: 1px dotted #333;
   border-radius: 3px;
   font-size: 16px;
   padding: 12px;
-  min-width: 500px;
+  min-width: 200px;
   max-width: 100%;
+}
+
+.form-group textarea::placeholder {
+  font-family: inherit;
 }
 
 /* Keyframes */
@@ -1027,5 +1051,20 @@ table th {
   .navbar ul {
     text-align: center;
     justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Text Styles */
+  .x-large {
+    font-size: 2.5rem;
+  }
+
+  .large {
+    font-size: 1.5rem;
+  }
+
+  .lead {
+    font-size: 0.8rem;
   }
 }

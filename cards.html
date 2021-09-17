@@ -28,8 +28,8 @@
     <div class="container all-center">
       <h1 class="large text-primary">Memory Card</h1>
       <div class="my-1">
-        <button id="clear" class="btn btn-sm btn-primary">
-          <i class="fas fa-trash"></i> Clear Cards
+        <button id="clear-all" class="btn btn-sm btn-primary">
+          <i class="fas fa-trash"></i> Clear All Cards
         </button>
         <button id="show" class="btn btn-sm btn-primary">
           <i class="fas fa-plus"></i> Add New Card
@@ -49,24 +49,26 @@
       </div>
 
       <div id="add-container" class="add-container">
-        <h1 class="large text-primary">Add New Card</h1>
-        <button id="hide" class="btn btn-small btn-primary">
-          <i class="fas fa-times"></i>
-        </button>
+        <div class="btn-close-container p-1">
+          <h1 class="large text-dark m-1">Add New Card</h1>
+          <button id="hide" class="btn btn-small btn-close">
+            <i class="fas fa-times"></i>
+          </button>
 
-        <div class="form-group">
-          <label for="question">Question</label>
-          <textarea id="question" placeholder="Enter question..."></textarea>
+          <div class="form-group">
+            <label for="question">Question</label>
+            <textarea id="question" placeholder="Enter Question..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="answer">Answer</label>
+            <textarea id="answer" placeholder="Enter Answer..."></textarea>
+          </div>
+
+          <button id="add-card" class="btn btn-small btn-primary m-1">
+            <i class="fas fa-plus"></i> Add Card
+          </button>
         </div>
-
-        <div class="form-group">
-          <label for="answer">Answer</label>
-          <textarea id="answer" placeholder="Enter Answer..."></textarea>
-        </div>
-
-        <button id="add-card" class="btn btn-small btn-primary m-1">
-          <i class="fas fa-plus"></i> Add Card
-        </button>
       </div>
     </div>
     <script src="./js/cards.js"></script>
