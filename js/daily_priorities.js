@@ -40,7 +40,7 @@ function updateDailyCounter() {
 // Clear local storage
 clearBTN.addEventListener("click", () => {
   localStorage.clear();
-  location.reload();
+  window.location.reload();
 });
 
 loadCheckData();

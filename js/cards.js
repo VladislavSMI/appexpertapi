@@ -9,15 +9,18 @@ const answerEl = document.getElementById("answer");
 const addCardBtn = document.getElementById("add-card");
 const clearAllBtn = document.getElementById("clear-all");
 const addContainer = document.getElementById("add-container");
+const cardsElements = document.getElementsByClassName("card-memory");
 
-// Store DOM cards
-let cardsEl = [];
+// Generate random ID
+function generateID() {
+  return Math.floor(Math.random() * 100000000);
+}
 
 // Keep track of current card
 let currentActiveCard = 0;
 
 // Local Storage
-// Get cards from local storage
+// Get cards from local storage and concat with existing predefined cards
 function getCardsData() {
   const cards = JSON.parse(localStorage.getItem("cards"));
   return cards === null ? [] : cards;
@@ -31,12 +34,7 @@ function setCardsData(cards) {
 
 // Show number of cards
 function updateCurrentText() {
-  currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
-}
-
-// Generate random ID
-function generateID() {
-  return Math.floor(Math.random() * 100000000);
+  currentEl.innerText = `${currentActiveCard + 1}/${cardsElements.length}`;
 }
 
 // Store card data
@@ -77,37 +75,30 @@ function createCard(data, index) {
 
   card.addEventListener("click", () => card.classList.toggle("show-answer"));
 
-  // Add to DOM cards
-  cardsEl.push(card);
-
   cardsContainer.appendChild(card);
 
-  currentActiveCard = cardsEl.length - 1;
-  cardsEl[currentActiveCard].className = "card-memory active";
-
   updateCurrentText();
-
-  // window.location.reload();
 }
+
 
 // Next button
 nextBtn.addEventListener("click", () => {
-  cardsEl[currentActiveCard].className = "card-memory left";
+  cardsElements[currentActiveCard].className = "card-memory left";
 
   currentActiveCard = currentActiveCard + 1;
 
-  if (currentActiveCard > cardsEl.length - 1) {
-    currentActiveCard = cardsEl.length - 1;
+  if (currentActiveCard > cardsElements.length - 1) {
+    currentActiveCard = cardsElements.length - 1;
   }
 
-  cardsEl[currentActiveCard].className = "card-memory active";
+  cardsElements[currentActiveCard].className = "card-memory active";
 
   updateCurrentText();
 });
 
 // Previous button
 prevBtn.addEventListener("click", () => {
-  cardsEl[currentActiveCard].className = "card-memory right";
+  cardsElements[currentActiveCard].className = "card-memory right";
 
   currentActiveCard = currentActiveCard - 1;
 
@@ -115,7 +106,7 @@ prevBtn.addEventListener("click", () => {
     currentActiveCard = 0;
   }
 
-  cardsEl[currentActiveCard].className = "card-memory active";
+  cardsElements[currentActiveCard].className = "card-memory active";
 
   updateCurrentText();
 });
