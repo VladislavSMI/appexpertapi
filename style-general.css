@@ -29,17 +29,17 @@ body {
   font-family: "Roboto", serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #333;
-  color: #333;
+  background-color: var(--dark-color);
+  color: var(--dark-color);
 }
 
 a {
-  color: #333;
+  color: var(--dark-color);
   text-decoration: none;
 }
 
 i {
-  color: #333;
+  color: var(--dark-color);
 }
 
 a:hover {
@@ -291,7 +291,7 @@ img.icon {
 .btn {
   display: inline-block;
   background: var(--light-color);
-  color: #333;
+  color: var(--dark-color);
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -330,7 +330,7 @@ img.icon {
   text-align: center;
   margin: 0.3rem;
   background: var(--primary-color-darker);
-  color: #333;
+  color: var(--dark-color);
   border-radius: 5px;
 }
 
@@ -339,7 +339,7 @@ img.icon {
   margin: 1rem 0;
   opacity: 0.9;
   background: var(--light-color);
-  color: #333;
+  color: var(--dark-color);
 }
 
 .btn-primary,
@@ -347,7 +347,7 @@ img.icon {
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
-  color: #333;
+  color: var(--dark-color);
 }
 
 .btn-primary-darker,
@@ -355,7 +355,7 @@ img.icon {
 .badge-primary-darker,
 .alert-primary-darker {
   background: var(--primary-color-darker);
-  color: #333;
+  color: var(--dark-color);
 }
 
 .btn-light,
@@ -363,7 +363,7 @@ img.icon {
 .badge-light,
 .alert-light {
   background: var(--light-color);
-  color: #333;
+  color: var(--dark-color);
 }
 
 .btn-dark,
@@ -403,12 +403,13 @@ img.icon {
 .badge-white,
 .alert-white {
   background: #fff;
-  color: #333;
+  color: var(--dark-color);
   border: #ccc solid 1px;
 }
 
 .btn:hover {
-  background-color: #ffcf2f;
+  background-color: var(--attention-color);
+  transform: scale(0.95);
 }
 
 .bg-light,
@@ -437,14 +438,14 @@ textarea {
   width: 100%;
   padding: 0.4rem;
   font-size: 1rem;
-  color: #333;
+  color: var(--dark-color);
   border: 2px dotted var(--primary-color-darker);
   border-radius: 5px;
   background: transparent;
 }
 
 input[type="text"]::placeholder {
-  color: #333;
+  color: var(--dark-color);
   text-align: center;
 }
 
@@ -458,7 +459,7 @@ button {
 input[type="checkbox"] {
   background-color: var(--primary-color-darker);
   border: 2px dotted var(--primary-color);
-  color: #333;
+  color: var(--dark-color);
   width: 25px;
   height: 25px;
   padding: 9px;
@@ -477,7 +478,7 @@ input[type="checkbox"]:checked:after {
   position: absolute;
   top: 0px;
   left: 3px;
-  color: #333;
+  color: var(--dark-color);
 }
 
 [type="number"] {
@@ -490,7 +491,7 @@ textarea {
 }
 
 textarea::placeholder {
-  color: #333;
+  color: var(--dark-color);
 }
 
 table th,
@@ -521,7 +522,7 @@ table th {
 }
 
 .navbar a {
-  color: #333;
+  color: var(--dark-color);
   padding: 0.45rem;
   margin: 0 0.25rem;
   font-size: 1.3rem;
@@ -542,11 +543,6 @@ table th {
   margin-right: 0.6rem;
 }
 
-/* Spinner */
-.spinner {
-  width: 200px;
-}
-
 /* Image containers */
 .image-container {
   position: relative;
@@ -556,38 +552,6 @@ table th {
 .image-container:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
-
-.image-container:hover .overlay {
-  opacity: 1;
-}
-
-.overlay {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.8);
-  width: 100%;
-  height: 60px;
-  transition: 0.5s ease;
-  opacity: 0;
-  font-size: 20px;
-  padding: 20px;
-  text-align: center;
-}
-
-.overlay.bottom {
-  bottom: 0;
-}
-
-.overlay.top-left {
-  width: 50%;
-  left: 0;
-  top: 0;
-}
-
-.overlay.top-right {
-  width: 50%;
-  right: 0;
-  top: 0;
 }
 
 /* Keyframes */

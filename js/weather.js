@@ -1,7 +1,9 @@
+let weatherAPiKey = config.WEATHER_API_KEY;
+
 // Fetching Data from API
 class Weather {
   constructor(city, state) {
-    this.apiKey = "79727138a9f64242b11ccc75452851b3";
+    this.apiKey = weatherAPiKey;
     this.city = city;
     this.state = state;
   }
