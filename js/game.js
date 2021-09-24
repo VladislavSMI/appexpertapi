@@ -2,8 +2,19 @@ const canvas = document.getElementById("canvas");
 const won = document.getElementById("won");
 const ctx = canvas.getContext("2d");
 
+const btnLeft = document.getElementById("btn-left");
+const btnRight = document.getElementById("btn-right");
+const btnControllers = document.getElementById("btn-controllers");
+
 const speedOfBall = document.getElementById("speed");
 const widthOfPaddle = document.getElementById("width");
+
+// adding btn left and right for mobile versions
+let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (!isMobile) {
+  btnControllers.classList.add("invisible");
+}
 
 let score = 0;
 const delay = 5000;
@@ -215,9 +226,17 @@ function update() {
 
 // Keyddown event
 function keyDown(e) {
-  if (e.key === "Right" || e.key === "ArrowRight") {
+  if (
+    e.key === "Right" ||
+    e.key === "ArrowRight" ||
+    e.target.id === "btn-right"
+  ) {
     paddle.dx = paddle.speed;
-  } else if (e.key === "Left" || e.key === "ArrowLeft") {
+  } else if (
+    e.key === "Left" ||
+    e.key === "ArrowLeft" ||
+    e.target.id === "btn-left"
+  ) {
     paddle.dx = -paddle.speed;
   }
 }
@@ -228,7 +247,9 @@ function keyUp(e) {
     e.key === "Right" ||
     e.key === "ArrowRight" ||
     e.key === "Left" ||
-    e.key === "ArrowLeft"
+    e.key === "ArrowLeft" ||
+    e.target.id === "btn-right" ||
+    e.target.id === "btn-left"
   ) {
     paddle.dx = 0;
   }
@@ -237,6 +258,8 @@ function keyUp(e) {
 // Keyboard event handlers
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
+btnLeft.addEventListener("mousedown", keyDown);
+btnRight.addEventListener("mouseup", keyUp);
 
 // Input and resize event handlers
 speedOfBall.addEventListener("change", () => {
