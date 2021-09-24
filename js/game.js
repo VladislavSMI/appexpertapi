@@ -228,14 +228,14 @@ function update() {
 function keyDown(e) {
   if (
     e.key === "Right" ||
-    e.key === "ArrowRight" ||
-    e.target.id === "btn-right"
+    e.key === "ArrowRight"
+    // || e.target.id === "btn-right"
   ) {
     paddle.dx = paddle.speed;
   } else if (
     e.key === "Left" ||
-    e.key === "ArrowLeft" ||
-    e.target.id === "btn-left"
+    e.key === "ArrowLeft"
+    // || e.target.id === "btn-left"
   ) {
     paddle.dx = -paddle.speed;
   }
@@ -247,9 +247,9 @@ function keyUp(e) {
     e.key === "Right" ||
     e.key === "ArrowRight" ||
     e.key === "Left" ||
-    e.key === "ArrowLeft" ||
-    e.target.id === "btn-right" ||
-    e.target.id === "btn-left"
+    e.key === "ArrowLeft"
+    // || e.target.id === "btn-right" ||
+    // e.target.id === "btn-left"
   ) {
     paddle.dx = 0;
   }
@@ -258,9 +258,9 @@ function keyUp(e) {
 // Keyboard event handlers
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
-btnLeft.addEventListener("mousedown", keyDown);
+// btnLeft.addEventListener("mousedown", keyDown);
 // btnLeft.addEventListener("mouseup", keyUp);
-btnRight.addEventListener("mouseup", keyDown);
+// btnRight.addEventListener("mouseup", keyDown);
 // btnRight.addEventListener("mouseup", keyUp);
 
 // Input and resize event handlers
