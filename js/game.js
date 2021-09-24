@@ -259,7 +259,9 @@ function keyUp(e) {
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
 btnLeft.addEventListener("mousedown", keyDown);
-btnRight.addEventListener("mouseup", keyUp);
+// btnLeft.addEventListener("mouseup", keyUp);
+btnRight.addEventListener("mouseup", keyDown);
+// btnRight.addEventListener("mouseup", keyUp);
 
 // Input and resize event handlers
 speedOfBall.addEventListener("change", () => {
