@@ -49,7 +49,6 @@ function createCards() {
 function createCard(data, index) {
   const card = document.createElement("div");
   card.classList.add("card-memory");
-  card.classList.add("bg-primary");
 
   if (index === 0) {
     card.classList.add("active");
@@ -76,10 +75,10 @@ function createCard(data, index) {
   card.addEventListener("click", () => card.classList.toggle("show-answer"));
 
   cardsContainer.appendChild(card);
+  currentActiveCard = 0;
 
   updateCurrentText();
 }
-
 
 // Next button
 nextBtn.addEventListener("click", () => {

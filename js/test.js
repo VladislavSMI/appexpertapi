@@ -1,0 +1,1 @@
+let config = { WEATHER_API_KEY: "79727138a9f64242b11ccc75452851b3" };
