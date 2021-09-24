@@ -278,7 +278,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  /* transform: translateX(50%) rotateY(-25deg); */
+  transform: translateX(50%) rotateY(-10deg);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
@@ -290,11 +290,11 @@
 }
 
 .card-memory.left {
-  transform: translateX(-50%) rotateY(25deg);
+  transform: translateX(-50%) rotateY(10deg);
 }
 
 .card-memory.right {
-  transform: translateX(50%) rotateY(-25deg);
+  transform: translateX(50%) rotateY(-10deg);
 }
 
 .inner-card {
@@ -302,6 +302,7 @@
   width: 100%;
   position: relative;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 0.4 ease;
 }
 
@@ -311,6 +312,7 @@
 
 .inner-card-front,
 .inner-card-back {
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -342,7 +344,7 @@
   right: 10px;
   font-weight: bold;
   font-size: 16px;
-  color: #333;
+  color: #323232;
 }
 
 .navigation {
