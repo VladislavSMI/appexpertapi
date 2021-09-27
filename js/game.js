@@ -10,11 +10,11 @@ const speedOfBall = document.getElementById("speed");
 const widthOfPaddle = document.getElementById("width");
 
 // adding btn left and right for mobile versions
-// let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-// if (!isMobile) {
-//   btnControllers.classList.toggle("invisible");
-// }
+if (!isMobile) {
+  btnControllers.classList.toggle("invisible");
+}
 
 let score = 0;
 const delay = 5000;
