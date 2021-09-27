@@ -262,6 +262,10 @@ btnLeft.addEventListener("mousedown", keyDown);
 btnLeft.addEventListener("mouseup", keyUp);
 btnRight.addEventListener("mousedown", keyDown);
 btnRight.addEventListener("mouseup", keyUp);
+btnLeft.addEventListener("touchstart", keyDown);
+btnLeft.addEventListener("touchend", keyUp);
+btnRight.addEventListener("touchstart", keyDown);
+btnRight.addEventListener("touchend", keyUp);
 
 // Input and resize event handlers
 speedOfBall.addEventListener("change", () => {
