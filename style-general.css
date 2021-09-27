@@ -295,6 +295,12 @@ img.icon {
   align-items: center;
 }
 
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .flex-row {
   display: flex;
   overflow-x: auto;
