@@ -257,10 +257,6 @@
   overflow-x: auto;
 }
 
-.hidden {
-  display: none;
-}
-
 /* Cards specific styles */
 .cards {
   perspective: 2000px;
@@ -344,7 +340,7 @@
   right: 10px;
   font-weight: bold;
   font-size: 16px;
-  color: #323232;
+  color: #333;
 }
 
 .navigation {
@@ -432,6 +428,7 @@
 }
 
 /* Breakout game specific styles */
+
 canvas {
   background: var(--primary-color);
   display: block;
@@ -456,6 +453,15 @@ canvas {
   width: 100%;
   padding: 1rem;
   color: var(--primary-color);
+}
+
+#btn-right,
+#btn-left {
+  padding: 12px 16px;
+}
+
+.btn-game {
+  padding: 0;
 }
 
 /* Water app specific styles */

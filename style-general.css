@@ -75,6 +75,18 @@ img.icon {
   position: relative;
 }
 
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 /* Text Styles*/
 .x-large {
   font-size: 4rem;
@@ -274,6 +286,12 @@ img.icon {
 .flex-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
