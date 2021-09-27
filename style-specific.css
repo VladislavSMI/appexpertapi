@@ -436,13 +436,10 @@ canvas {
 }
 
 .won {
-  width: 95%;
-  height: 70vh;
-  top: 10rem;
-  max-width: 800px;
+  width: 90%;
+  top: 50vh;
   background-color: var(--dark-color);
   position: absolute;
-  margin: 2rem;
   visibility: hidden;
 }
 .won h1 {
