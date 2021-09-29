@@ -9,7 +9,7 @@ const btnControllers = document.getElementById("btn-controllers");
 const speedOfBall = document.getElementById("speed");
 const widthOfPaddle = document.getElementById("width");
 
-// adding btn left and right for mobile versions
+// Btn-left and Btn-right for mobile versions
 let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 if (!isMobile) {
@@ -284,7 +284,7 @@ window.addEventListener("resize", () => {
   changingGameProps();
 });
 
-// Responsively changing game props
+// Responsively changing game  (size of canvas, paddle, ball)
 function changingGameProps() {
   if (window.innerWidth > 850) {
     canvas.width = 800;
